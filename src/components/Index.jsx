@@ -58,8 +58,8 @@ const Index = () => {
                       <Link to={`/listings/${listing._id}`}>
                         <img
                           src={listing.image_url}
-                          alt="Listing Image"
-                          className="thumbnail"
+                          alt='Listing Image'
+                          className='thumbnail'
                           style={{ width: '80px', height: 'auto' }}
                         />
                       </Link>

@@ -58,152 +58,152 @@ const Create = () => {
 
   return (
     <div>
-      <h3 className="create">Create Listing</h3>
-      {error && <p className="error">{error}</p>}
+      <h3 className='create'>Create Listing</h3>
+      {error && <p className='error'>{error}</p>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="address">address</label>
+        <label htmlFor='address'>address</label>
         <input
-          type="text"
-          name="address"
-          id="address"
+          type='text'
+          name='address'
+          id='address'
           value={formData.address}
           onChange={handleChange}
           required
         />
-        <label htmlFor="apt_num">apt_num</label>
+        <label htmlFor='apt_num'>apt_num</label>
         <input
-          type="text"
-          name="apt_num"
-          id="apt_num"
+          type='text'
+          name='apt_num'
+          id='apt_num'
           value={formData.apt_num}
           onChange={handleChange}
           required
         />
-        <label htmlFor="city">city</label>
+        <label htmlFor='city'>city</label>
         <input
-          type="text"
-          name="city"
-          id="city"
+          type='text'
+          name='city'
+          id='city'
           value={formData.city}
           onChange={handleChange}
           required
         />
-        <label htmlFor="state">state</label>
+        <label htmlFor='state'>state</label>
         <input
-          type="text"
-          name="state"
-          id="state"
+          type='text'
+          name='state'
+          id='state'
           value={formData.state}
           onChange={handleChange}
           required
         />
-        <label htmlFor="zip_code">zip_code</label>
+        <label htmlFor='zip_code'>zip_code</label>
         <input
-          type="text"
-          name="zip_code"
-          id="zip_code"
+          type='text'
+          name='zip_code'
+          id='zip_code'
           value={formData.zip_code}
           onChange={handleChange}
           required
         />
-        <label htmlFor="neighborhood">neighborhood</label>
+        <label htmlFor='neighborhood'>neighborhood</label>
         <input
-          type="text"
-          name="neighborhood"
-          id="neighborhood"
+          type='text'
+          name='neighborhood'
+          id='neighborhood'
           value={formData.neighborhood}
           onChange={handleChange}
           required
         />
-        <label htmlFor="borough">borough</label>
+        <label htmlFor='borough'>borough</label>
         <input
-          type="text"
-          name="borough"
-          id="borough"
+          type='text'
+          name='borough'
+          id='borough'
           value={formData.borough}
           onChange={handleChange}
           required
         />
-        <label htmlFor="status">status</label>
+        <label htmlFor='status'>status</label>
         <input
-          type="text"
-          name="status"
-          id="status"
+          type='text'
+          name='status'
+          id='status'
           value={formData.status}
           onChange={handleChange}
           required
         />
-        <label htmlFor="property_type">property_type</label>
+        <label htmlFor='property_type'>property_type</label>
         <input
-          type="text"
-          name="property_type"
-          id="property_type"
+          type='text'
+          name='property_type'
+          id='property_type'
           value={formData.property_type}
           onChange={handleChange}
           required
         />
-        <label htmlFor="bedrooms">bedrooms</label>
+        <label htmlFor='bedrooms'>bedrooms</label>
         <input
-          type="text"
-          name="bedrooms"
-          id="bedrooms"
+          type='text'
+          name='bedrooms'
+          id='bedrooms'
           value={formData.bedrooms}
           onChange={handleChange}
           required
         />
-        <label htmlFor="bathrooms">bathrooms</label>
+        <label htmlFor='bathrooms'>bathrooms</label>
         <input
-          type="text"
-          name="bathrooms"
-          id="bathrooms"
+          type='text'
+          name='bathrooms'
+          id='bathrooms'
           value={formData.bathrooms}
           onChange={handleChange}
           required
         />
-        <label htmlFor="price">price</label>
+        <label htmlFor='price'>price</label>
         <input
-          type="text"
-          name="price"
-          id="price"
+          type='text'
+          name='price'
+          id='price'
           value={formData.price}
           onChange={handleChange}
           required
         />
-        <label htmlFor="square_feet">square_feet</label>
+        <label htmlFor='square_feet'>square_feet</label>
         <input
-          type="text"
-          name="square_feet"
-          id="square_feet"
+          type='text'
+          name='square_feet'
+          id='square_feet'
           value={formData.square_feet}
           onChange={handleChange}
           required
         />
-        <label htmlFor="price_per_sq_ft">price_per_sq_ft</label>
+        <label htmlFor='price_per_sq_ft'>price_per_sq_ft</label>
         <input
-          type="text"
-          name="price_per_sq_ft"
-          id="price_per_sq_ft"
+          type='text'
+          name='price_per_sq_ft'
+          id='price_per_sq_ft'
           value={formData.price_per_sq_ft}
           onChange={handleChange}
         />
-        <label htmlFor="description">listing description</label>
+        <label htmlFor='description'>listing description</label>
         <input
-          type="text"
-          name="description"
-          id="description"
+          type='text'
+          name='description'
+          id='description'
           value={formData.description}
           onChange={handleChange}
         />
-        <label htmlFor="image_url">image_url</label>
+        <label htmlFor='image_url'>image_url</label>
         <input
-          type="text"
-          name="image_url"
-          id="image_url"
+          type='text'
+          name='image_url'
+          id='image_url'
           value={formData.image_url}
           onChange={handleChange}
         />
         <br />
-        <input type="submit" className="submitButton" value="Submit" />
+        <input type='submit' className='submitButton' value='Submit' />
       </form>
     </div>
   );

@@ -3,6 +3,14 @@ import axios from 'axios';
 import { AuthContext } from './AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import {
+  TextField,
+  Button,
+  Typography,
+  Box,
+  Grid,
+  Paper,
+} from '@mui/material';
 
 const Edit = () => {
   const { id } = useParams();
@@ -67,7 +75,7 @@ const Edit = () => {
     event.preventDefault();
 
     axios
-      .put(`http://localhost:8000/listings/${id}`, formData)  
+      .put(`http://localhost:8000/listings/${id}`, formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${id}`);
@@ -83,7 +91,9 @@ const Edit = () => {
   }
 
   const handleDelete = () => {
-    const confirmed = window.confirm('Are you sure you want to delete this listing?');
+    const confirmed = window.confirm(
+      'Are you sure you want to delete this listing?'
+    );
     if (confirmed) {
       axios
         .delete(`http://localhost:8000/listings/${id}`)
@@ -99,154 +109,188 @@ const Edit = () => {
   };
 
   return (
-    <div>
-      <h3 className='edit'>Edit Listing</h3>
+    <Box sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+      <Paper elevation={3} sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
+        <Box p={2} sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ flexGrow: 1, textAlign: 'center' }}
+          >
+            Edit Listing
+          </Typography>
+        </Box>
+      </Paper>
+      {error && <Typography className="error">{error}</Typography>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor='address'>address</label>
-        <input
-          type='text'
-          name='address'
-          id='address'
-          value={formData.address}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='apt_num'>apt_num</label>
-        <input
-          type='text'
-          name='apt_num'
-          id='apt_num'
-          value={formData.apt_num}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='city'>city</label>
-        <input
-          type='text'
-          name='city'
-          id='city'
-          value={formData.city}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='state'>state</label>
-        <input
-          type='text'
-          name='state'
-          id='state'
-          value={formData.state}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='zip_code'>zip_code</label>
-        <input
-          type='text'
-          name='zip_code'
-          id='zip_code'
-          value={formData.zip_code}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='neighborhood'>neighborhood</label>
-        <input
-          type='text'
-          name='neighborhood'
-          id='neighborhood'
-          value={formData.neighborhood}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='borough'>borough</label>
-        <input
-          type='text'
-          name='borough'
-          id='borough'
-          value={formData.borough}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='status'>status</label>
-        <input
-          type='text'
-          name='status'
-          id='status'
-          value={formData.status}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='property_type'>property_type</label>
-        <input
-          type='text'
-          name='property_type'
-          id='property_type'
-          value={formData.property_type}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='bedrooms'>bedrooms</label>
-        <input
-          type='text'
-          name='bedrooms'
-          id='bedrooms'
-          value={formData.bedrooms}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='bathrooms'>bathrooms</label>
-        <input
-          type='text'
-          name='bathrooms'
-          id='bathrooms'
-          value={formData.bathrooms}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='price'>price</label>
-        <input
-          type='text'
-          name='price'
-          id='price'
-          value={formData.price}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='square_feet'>square_feet</label>
-        <input
-          type='text'
-          name='square_feet'
-          id='square_feet'
-          value={formData.square_feet}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor='price_per_sq_ft'>price_per_sq_ft</label>
-        <input
-          type='text'
-          name='price_per_sq_ft'
-          id='price_per_sq_ft'
-          value={formData.price_per_sq_ft}
-          onChange={handleChange}
-        />
-        <label htmlFor='description'>listing description</label>
-        <input
-          type='text'
-          name='description'
-          id='description'
-          value={formData.description}
-          onChange={handleChange}
-        />
-        <label htmlFor='image_url'>image_url</label>
-        <input
-          type='text'
-          name='image_url'
-          id='image_url'
-          value={formData.image_url}
-          onChange={handleChange}
-        />
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Address"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Apartment Number"
+              name="apt_num"
+              value={formData.apt_num}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="City"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="State"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Zip Code"
+              name="zip_code"
+              value={formData.zip_code}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Neighborhood"
+              name="neighborhood"
+              value={formData.neighborhood}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Borough"
+              name="borough"
+              value={formData.borough}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Status"
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Property Type"
+              name="property_type"
+              value={formData.property_type}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Bedrooms"
+              name="bedrooms"
+              value={formData.bedrooms}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Bathrooms"
+              name="bathrooms"
+              value={formData.bathrooms}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Square Feet"
+              name="square_feet"
+              value={formData.square_feet}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Price per Sq. Ft."
+              name="price_per_sq_ft"
+              value={formData.price_per_sq_ft}
+              onChange={handleChange}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Listing Description"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              label="Image URL"
+              name="image_url"
+              value={formData.image_url}
+              onChange={handleChange}
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <br />
+        <Button type="submit" variant="contained" color="primary">
+          Update
+        </Button>
+        <Button onClick={handleDelete} variant="contained" color="secondary">
+          Delete
+        </Button>
       </form>
-      <button type='submit' onClick={handleSubmit}>Update</button>
-      <button onClick={handleDelete}>Delete</button>
-    </div>
+    </Box>
   );
 };
 

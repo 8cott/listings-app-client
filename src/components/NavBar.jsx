@@ -39,8 +39,8 @@ function AppBarMUI() {
     navigate('/signup');
   };
 
-   // Create Handler
-   const handleCreate = () => {
+  // Create Handler
+  const handleCreate = () => {
     navigate('/listings/create');
   };
 
@@ -54,13 +54,13 @@ function AppBarMUI() {
   // Navigation to Home Page
   const navigateToHome = () => {
     navigate('/');
-  }
+  };
 
   // Menu Item Click Handler
   const handleMenuClick = (setting) => {
-    handleCloseUserMenu(); 
+    handleCloseUserMenu();
 
-    switch(setting) {
+    switch (setting) {
       case 'Logout':
         handleLogout();
         break;
@@ -79,28 +79,46 @@ function AppBarMUI() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'black' }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <>
+      <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            minHeight: '5rem',
+            '@media (min-width:0px)': { minHeight: '5rem' },
+            paddingLeft: '2rem',
+            paddingRight: '2rem',
+          }}
+        >
           <Box
             sx={{ display: { xs: 'none', md: 'flex' }, marginRight: '1rem' }}
           >
-            <img src={SRCLogoWhite} alt="Logo" style={{ height: '2rem', cursor: 'pointer' }} onClick={navigateToHome} />
+            <img
+              src={SRCLogoWhite}
+              alt="Logo"
+              style={{ height: '2.5rem', cursor: 'pointer' }}
+              onClick={navigateToHome}
+            />
           </Box>
           <Box
             sx={{ display: { xs: 'flex', md: 'none' }, marginRight: '1rem' }}
           >
-            <img src={SRLogoWhite} alt="Logo" style={{ height: '2rem', cursor: 'pointer' }} onClick={navigateToHome} />
+            <img
+              src={SRLogoWhite}
+              alt="Logo"
+              style={{ height: '2.5rem', cursor: 'pointer' }}
+              onClick={navigateToHome}
+            />
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <MenuIcon sx={{ color: 'white' }} />
+                <MenuIcon sx={{ color: 'white', fontSize: '2rem' }} />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '2rem' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -113,21 +131,28 @@ function AppBarMUI() {
                 horizontal: 'right',
               }}
               open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-              {(isLoggedIn ? ['Create Listing', 'Logout'] : ['Login', 'Signup']).map((setting) => (
-              <MenuItem 
-                key={setting} 
-                onClick={() => handleMenuClick(setting)}
-              >
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
+              onClose={handleCloseUserMenu}
+            >
+              {(isLoggedIn
+                ? ['Create Listing', 'Logout']
+                : ['Login', 'Signup']
+              ).map((setting) => (
+                <MenuItem
+                  key={setting}
+                  onClick={() => handleMenuClick(setting)}
+                >
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
               ))}
             </Menu>
           </Box>
         </Toolbar>
-      </Container>
-    </AppBar>
+      </AppBar>
+      <Box sx={{ marginTop: '5.5rem' }}>
+        {/* Add a margin to the top of the content */}
+        <Container maxWidth="xl">{/* Page content */}</Container>
+      </Box>
+    </>
   );
 }
 

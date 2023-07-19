@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { AuthContext } from './AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Edit = () => {
   const { id } = useParams();
@@ -23,8 +25,18 @@ const Edit = () => {
     image_url: '',
   });
 
+  const { isLoggedIn, user } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      toast.warning('You must be logged in to access this page', {
+        toastId: 'login-toast',
+      });
+      navigate('/login');
+    }
+  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     axios
@@ -41,6 +53,14 @@ const Edit = () => {
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSuccess = (msg) => {
+    toast.success('Listing Updated!');
+  };
+
+  const handleError = (err) => {
+    toast.error('Error Updating Listing!');
   };
 
   const handleSubmit = (event) => {

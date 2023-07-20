@@ -19,9 +19,11 @@ export const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
 
+  // Store user data in state
   useEffect(() => {
     const jwtToken = localStorage.getItem('jwt');
 
+    // If user is logged in, decode token and set user
     if (jwtToken) {
       try {
         const decodedUser = jwtDecode(jwtToken);
@@ -32,6 +34,7 @@ export const AuthProvider = ({ children }) => {
         console.log('Invalid token');
         setIsLoggedIn(false);
       }
+      // If user is not logged in, set user to null
     } else {
       setIsLoggedIn(false);
     }

@@ -21,6 +21,7 @@ function AppBarMUI() {
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  // User Menu Handlers
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -60,6 +61,7 @@ function AppBarMUI() {
   const handleMenuClick = (setting) => {
     handleCloseUserMenu();
 
+    // Handle menu item click
     switch (setting) {
       case 'Logout':
         handleLogout();
@@ -149,8 +151,6 @@ function AppBarMUI() {
         </Toolbar>
       </AppBar>
       <Box sx={{ marginTop: '5.5rem' }}>
-        {/* Add a margin to the top of the content */}
-        <Container maxWidth="xl">{/* Page content */}</Container>
       </Box>
     </>
   );

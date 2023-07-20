@@ -20,6 +20,7 @@ const Show = () => {
   const [listing, setListing] = useState(null);
   const { isLoggedIn, user } = useContext(AuthContext);
 
+  // Fetch listing data from API
   useEffect(() => {
     axios
       .get(`${API_BASE_URL}/listings/${id}`)
@@ -35,6 +36,7 @@ const Show = () => {
     return <div>Loading...</div>;
   }
 
+  // Handle delete listing
   const handleDelete = () => {
     const confirmed = window.confirm(
       'Are you sure you want to delete this listing?'

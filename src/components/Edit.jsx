@@ -39,6 +39,7 @@ const Edit = () => {
     }
   }, [isLoggedIn, navigate]);
 
+  // Fetch listing data from API
   useEffect(() => {
     axios
       .get(`http://localhost:8000/listings/${id}`)
@@ -52,10 +53,12 @@ const Edit = () => {
       });
   }, [id]);
 
+  // Handle form input changes
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  // Handle form submission
   const handleSuccess = (msg) => {
     toast.success('Listing Updated!');
   };
@@ -67,6 +70,7 @@ const Edit = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Send PUT request to API to update listing
     axios
       .put(`http://localhost:8000/listings/${id}`, formData)
       .then((response) => {
@@ -83,11 +87,13 @@ const Edit = () => {
     return <p className="error">{error}</p>;
   }
 
+  // Handle delete listing
   const handleDelete = () => {
     const confirmed = window.confirm(
       'Are you sure you want to delete this listing?'
     );
     if (confirmed) {
+      // Send DELETE request to API to delete listing
       axios
         .delete(`http://localhost:8000/listings/${id}`)
         .then((response) => {

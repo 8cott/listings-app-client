@@ -29,20 +29,24 @@ const Index = () => {
   const [listings, setListings] = useState([]);
   const [viewMode, setViewMode] = useState('module');
 
+  // Sets the view mode to module if the screen size is small
   useEffect(() => {
     if (isSmallScreen) {
       setViewMode('module');
     }
   }, [isSmallScreen]);
 
+  // Sets the view mode to list if the screen size is large
   const handleViewModule = () => {
     setViewMode('module');
   };
 
+  // Sets the view mode to module if the screen size is small
   const handleViewList = () => {
     setViewMode('list');
   };
 
+  // Fetch all listings from the database
   useEffect(() => {
     axios
       .get(`${API_BASE_URL}/listings`)
@@ -86,7 +90,7 @@ const Index = () => {
         <Box p={2}>
           {viewMode === 'list' ? (
             <Table stickyHeader>
-              <TableHead style={{position: 'sticky', top: '4.8rem'}}>
+              <TableHead style={{ position: 'sticky', top: '4.8rem' }}>
                 <TableRow>
                   <TableCell>Image</TableCell>
                   <TableCell>Address</TableCell>
@@ -143,85 +147,87 @@ const Index = () => {
               {Array.isArray(listings) && listings.length > 0 ? (
                 listings.map((listing, index) => (
                   <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                    <Link to={`/listings/${listing._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <Card sx={{ width: '100%', flexShrink: 0 }}>
-                      <img
-                        style={{ width: '100%', objectFit: 'contain' }}
-                        src={listing.image_url}
-                        title="listing image"
-                        alt="listing image"
-                      />
-                      
-                      <CardContent sx={{ textAlign: 'center' }}>
-                        <Typography
-                          gutterBottom
-                          variant="h6"
-                          component="div"
-                          sx={{ fontWeight: 'bold' }}
-                        >
-                          {listing.address}, Apt {listing.apt_num}
-                        </Typography>
-                        <Divider />
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          component="div"
-                        >
-                          {listing.status}
-                        </Typography>
-                        <Divider />
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          component="div"
-                        >
-                          {listing.city}, {listing.state} {listing.zip_code}
-                        </Typography>
-                        <Divider />
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          component="div"
-                        >
-                          {listing.neighborhood} / {listing.borough}
-                        </Typography>
-                        <Divider />
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          component="div"
-                        >
-                          {listing.property_type}
-                        </Typography>
-                        <Divider />
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          component="div"
-                        >
-                          Bedrooms: {listing.bedrooms} Bathrooms:{' '}
-                          {listing.bathrooms}
-                        </Typography>
-                        <Divider />
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          component="div"
-                        >
-                          Price: {listing.price}
-                        </Typography>
-                        <Divider />
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          component="div"
-                        >
-                          Square Feet: {listing.square_feet} | Price Per SqFt:{' '}
-                          {listing.price_per_sq_ft}
-                        </Typography>
-                      </CardContent>
-                      
-                    </Card>
+                    <Link
+                      to={`/listings/${listing._id}`}
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                      <Card sx={{ width: '100%', flexShrink: 0 }}>
+                        <img
+                          style={{ width: '100%', objectFit: 'contain' }}
+                          src={listing.image_url}
+                          title="listing image"
+                          alt="listing image"
+                        />
+
+                        <CardContent sx={{ textAlign: 'center' }}>
+                          <Typography
+                            gutterBottom
+                            variant="h6"
+                            component="div"
+                            sx={{ fontWeight: 'bold' }}
+                          >
+                            {listing.address}, Apt {listing.apt_num}
+                          </Typography>
+                          <Divider />
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            component="div"
+                          >
+                            {listing.status}
+                          </Typography>
+                          <Divider />
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            component="div"
+                          >
+                            {listing.city}, {listing.state} {listing.zip_code}
+                          </Typography>
+                          <Divider />
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            component="div"
+                          >
+                            {listing.neighborhood} / {listing.borough}
+                          </Typography>
+                          <Divider />
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            component="div"
+                          >
+                            {listing.property_type}
+                          </Typography>
+                          <Divider />
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            component="div"
+                          >
+                            Bedrooms: {listing.bedrooms} Bathrooms:{' '}
+                            {listing.bathrooms}
+                          </Typography>
+                          <Divider />
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            component="div"
+                          >
+                            Price: {listing.price}
+                          </Typography>
+                          <Divider />
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            component="div"
+                          >
+                            Square Feet: {listing.square_feet} | Price Per SqFt:{' '}
+                            {listing.price_per_sq_ft}
+                          </Typography>
+                        </CardContent>
+                      </Card>
                     </Link>
                   </Grid>
                 ))

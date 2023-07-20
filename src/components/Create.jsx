@@ -29,6 +29,7 @@ const Create = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // Check if user is logged in
   useEffect(() => {
     if (!isLoggedIn) {
       toast.warning('You must be logged in to access this page', {
@@ -38,6 +39,7 @@ const Create = () => {
     }
   }, [isLoggedIn, navigate]);
 
+  // Handle form input changes
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -53,6 +55,7 @@ const Create = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Send POST request to API to create new listing
     axios
       .post('http://localhost:8000/listings/', formData)
       .then((response) => {

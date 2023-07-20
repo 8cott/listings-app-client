@@ -3,14 +3,7 @@ import axios from 'axios';
 import { AuthContext } from './AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {
-  TextField,
-  Button,
-  Typography,
-  Box,
-  Grid,
-  Paper,
-} from '@mui/material';
+import { TextField, Button, Typography, Box, Grid, Paper } from '@mui/material';
 
 const Edit = () => {
   const { id } = useParams();
@@ -87,7 +80,7 @@ const Edit = () => {
   };
 
   if (error) {
-    return <p className='error'>{error}</p>;
+    return <p className="error">{error}</p>;
   }
 
   const handleDelete = () => {
@@ -110,7 +103,7 @@ const Edit = () => {
 
   return (
     <Box sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-      <Paper elevation={3} sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
+      <Paper elevation={3} sx={{ marginBottom: '2rem', marginTop: '1rem' }}>
         <Box p={2} sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography
             variant="h5"
@@ -283,12 +276,19 @@ const Edit = () => {
           </Grid>
         </Grid>
         <br />
-        <Button type="submit" variant="contained" color="primary">
-          Update
-        </Button>
-        <Button onClick={handleDelete} variant="contained" color="secondary">
-          Delete
-        </Button>
+        <Box sx={{ marginTop: '1rem', display: 'flex', gap: '0.5rem' }}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            sx={{ marginRight: '0.5rem' }}
+          >
+            Update
+          </Button>
+          <Button onClick={handleDelete} variant="contained" color="secondary">
+            Delete
+          </Button>
+        </Box>
       </form>
     </Box>
   );

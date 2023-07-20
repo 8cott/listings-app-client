@@ -79,7 +79,7 @@ const Create = () => {
 
   return (
     <Box sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-      <Paper elevation={3} sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
+      <Paper elevation={3} sx={{ marginBottom: '2rem', marginTop: '1rem' }}>
         <Box p={2} sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography
             variant="h5"
@@ -90,7 +90,7 @@ const Create = () => {
           </Typography>
         </Box>
       </Paper>
-      ;{error && <Typography className="error">{error}</Typography>}
+      {error && <Typography className="error">{error}</Typography>}
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>

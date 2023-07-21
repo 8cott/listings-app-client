@@ -26,8 +26,7 @@ const Edit = () => {
     image_url: '',
   });
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const { isLoggedIn, user } = useContext(AuthContext);
+  const API_BASE_URL = process.env.VITE_API_BASE_URL || '';  const { isLoggedIn, user } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 

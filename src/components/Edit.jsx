@@ -26,6 +26,7 @@ const Edit = () => {
     image_url: '',
   });
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const { isLoggedIn, user } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ const Edit = () => {
 
     // Send PUT request to API to update listing
     axios
-      .put(`http://localhost:8000/listings/${id}`, formData)
+      .put(`${API_BASE_URL}/listings/${id}`, formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${id}`);

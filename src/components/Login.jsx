@@ -23,12 +23,14 @@ const Login = () => {
   const handleError = (err) => toast.error(err, {});
 
   const handleSuccess = (msg) => toast.success('Logged in successfully');
+  
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'http://localhost:8000/login',
+        `${API_BASE_URL}/login`,
         {
           ...inputValue,
         },

@@ -29,6 +29,7 @@ const Show = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
+        setError('Failed to fetch listing data. Please try again.');
       });
   }, [id]);
 

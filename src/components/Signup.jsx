@@ -34,9 +34,11 @@ const Signup = () => {
       return;
     }
 
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
     try {
       const { data } = await axios.post(
-        'http://localhost:8000/signup',
+        `${API_BASE_URL}/signup`,
         {
           ...inputValue,
         },

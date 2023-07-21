@@ -43,7 +43,7 @@ const Edit = () => {
   // Fetch listing data from API
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/listings/${id}`)
+      .get(`${API_BASE_URL}/listings/${id}`)
       .then((response) => {
         const listingData = response.data;
         setFormData(listingData);
@@ -96,7 +96,7 @@ const Edit = () => {
     if (confirmed) {
       // Send DELETE request to API to delete listing
       axios
-        .delete(`http://localhost:8000/listings/${id}`)
+        .delete(`${API_BASE_URL}/listings/${id}`)
         .then((response) => {
           console.log(response.data);
           navigate('/');

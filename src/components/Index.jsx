@@ -20,7 +20,7 @@ import {
 } from '@mui/material';
 import { ViewList, ViewModule } from '@mui/icons-material';
 
-const API_BASE_URL = process.env.VITE_API_BASE_URL || '';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 const Index = () => {
   const theme = useTheme();

@@ -5,6 +5,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { TextField, Button, Typography, Box, Grid, Paper } from '@mui/material';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Edit = () => {
   const { id } = useParams();
   const [formData, setFormData] = useState({
@@ -42,7 +44,7 @@ const Edit = () => {
   // Fetch listing data from API
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/listings/${id}`)
+      .get(`${API_BASE_URL}/listings/${id}`)
       .then((response) => {
         const listingData = response.data;
         setFormData(listingData);
@@ -72,7 +74,7 @@ const Edit = () => {
 
     // Send PUT request to API to update listing
     axios
-      .put(`http://localhost:8000/listings/${id}`, formData)
+      .put(`${API_BASE_URL}/listings/${id}`, formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${id}`);
@@ -95,7 +97,7 @@ const Edit = () => {
     if (confirmed) {
       // Send DELETE request to API to delete listing
       axios
-        .delete(`http://localhost:8000/listings/${id}`)
+        .delete(`${API_BASE_URL}/listings/${id}`)
         .then((response) => {
           console.log(response.data);
           navigate('/');

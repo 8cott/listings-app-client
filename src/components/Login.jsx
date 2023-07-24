@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../components/AuthContext';
 import { TextField, Button, Typography, Box, Paper } from '@mui/material';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'http://localhost:8000/login',
+        `${API_BASE_URL}/login`,
         {
           ...inputValue,
         },
@@ -66,7 +68,7 @@ const Login = () => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        marginTop: '-28em', // Adjust this value to move the box higher up
+        marginTop: '-28em',
       }}
     >
       <Paper elevation={3} sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}>

@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Divider } from '@mui/material';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Show = () => {
   const { id } = useParams();
@@ -43,7 +43,7 @@ const Show = () => {
     );
     if (confirmed) {
       axios
-        .delete(`http://localhost:8000/listings/${id}`)
+        .delete(`${API_BASE_URL}/listings/${id}`)
         .then((response) => {
           console.log(response.data);
           navigate('/');

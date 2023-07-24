@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Typography, Box, Grid, Paper } from '@mui/material';
 import { toast } from 'react-toastify';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Create = () => {
   const [formData, setFormData] = useState({
     address: '',
@@ -57,7 +59,7 @@ const Create = () => {
 
     // Send POST request to API to create new listing
     axios
-      .post('http://localhost:8000/listings/', formData)
+      .post(`${API_BASE_URL}/listings/`, formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${response.data._id}`);

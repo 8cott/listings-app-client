@@ -4,6 +4,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { TextField, Button, Typography, Box, Grid, Paper } from '@mui/material';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Signup = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
@@ -24,7 +26,15 @@ const Signup = () => {
     });
   };
 
-  const handleError = (err) => toast.error(err, {});
+  const handleError = (error) => {
+    let errorMessage = 'An error occurred. Please try again later.';
+    if (typeof error === 'string') {
+      errorMessage = `Error: ${error}`;
+    } else if (error.response && error.response.data && error.response.data.error) {
+      errorMessage = `Error: ${error.response.data.error}`;
+    }
+    toast.error(errorMessage, {});
+  };
 
   const handleSuccess = (msg) => toast.success('Signed up successfully');
 
@@ -34,28 +44,28 @@ const Signup = () => {
       handleError("Passwords don't match!");
       return;
     }
-
     try {
       const { data } = await axios.post(
-        'http://localhost:8000/signup',
+        `${API_BASE_URL}/signup`,
         {
           ...inputValue,
         },
         { withCredentials: true }
       );
-      const { success, message } = data;
+      const { success, message, error } = data;
+      console.log(data); // Log the response data to check its structure
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
           navigate('/');
         }, 1000);
       } else {
-        handleError(message);
+        handleError(error || message); // Use error message directly if available
       }
     } catch (error) {
-      console.log(error);
+      handleError(error);
     }
-
+  
     setInputValue({
       ...inputValue,
       email: '',
@@ -63,7 +73,7 @@ const Signup = () => {
       username: '',
       confirmPassword: '',
     });
-  };
+  };  
 
   return (
     <Box

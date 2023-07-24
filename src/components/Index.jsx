@@ -66,8 +66,8 @@ const Index = () => {
       <Paper elevation={3} sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
         <Box p={2} sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography
-            variant="h5"
-            component="div"
+            variant='h5'
+            component='div'
             sx={{ flexGrow: 1, textAlign: 'center' }}
           >
             Scott's Listings
@@ -113,8 +113,8 @@ const Index = () => {
                         <Link to={`/listings/${listing._id}`}>
                           <img
                             src={listing.image_url}
-                            alt="Listing Image"
-                            className="thumbnail"
+                            alt='Listing Image'
+                            className='thumbnail'
                             style={{ width: '80px', height: 'auto' }}
                           />
                         </Link>
@@ -155,15 +155,15 @@ const Index = () => {
                         <img
                           style={{ width: '100%', objectFit: 'contain' }}
                           src={listing.image_url}
-                          title="listing image"
-                          alt="listing image"
+                          title='listing image'
+                          alt='listing image'
                         />
 
                         <CardContent sx={{ textAlign: 'center' }}>
                           <Typography
                             gutterBottom
-                            variant="h6"
-                            component="div"
+                            variant='h6'
+                            component='div'
                             sx={{ fontWeight: 'bold' }}
                           >
                             {listing.address}, Apt {listing.apt_num}
@@ -171,40 +171,40 @@ const Index = () => {
                           <Divider />
                           <Typography
                             gutterBottom
-                            variant="body2"
-                            component="div"
+                            variant='body2'
+                            component='div'
                           >
                             {listing.status}
                           </Typography>
                           <Divider />
                           <Typography
                             gutterBottom
-                            variant="body2"
-                            component="div"
+                            variant='body2'
+                            component='div'
                           >
                             {listing.city}, {listing.state} {listing.zip_code}
                           </Typography>
                           <Divider />
                           <Typography
                             gutterBottom
-                            variant="body2"
-                            component="div"
+                            variant='body2'
+                            component='div'
                           >
                             {listing.neighborhood} / {listing.borough}
                           </Typography>
                           <Divider />
                           <Typography
                             gutterBottom
-                            variant="body2"
-                            component="div"
+                            variant='body2'
+                            component='div'
                           >
                             {listing.property_type}
                           </Typography>
                           <Divider />
                           <Typography
                             gutterBottom
-                            variant="body2"
-                            component="div"
+                            variant='body2'
+                            component='div'
                           >
                             Bedrooms: {listing.bedrooms} Bathrooms:{' '}
                             {listing.bathrooms}
@@ -212,16 +212,16 @@ const Index = () => {
                           <Divider />
                           <Typography
                             gutterBottom
-                            variant="body2"
-                            component="div"
+                            variant='body2'
+                            component='div'
                           >
                             Price: {listing.price}
                           </Typography>
                           <Divider />
                           <Typography
                             gutterBottom
-                            variant="body2"
-                            component="div"
+                            variant='body2'
+                            component='div'
                           >
                             Square Feet: {listing.square_feet} | Price Per SqFt:{' '}
                             {listing.price_per_sq_ft}
@@ -232,7 +232,7 @@ const Index = () => {
                   </Grid>
                 ))
               ) : (
-                <Typography variant="body1">No listings available.</Typography>
+                <Typography variant='body1'>No listings available.</Typography>
               )}
             </Grid>
           )}

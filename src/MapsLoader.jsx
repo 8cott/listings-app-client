@@ -1,7 +1,7 @@
 export const loadGoogleMapsAPI = () => {
     return new Promise((resolve, reject) => {
       // Don't append the script if it's already present
-      if (document.querySelector('script[src^="https://maps.googleapis.com/maps/api/js?key="]')) {
+      if (document.querySelector('script[src^=`https://maps.googleapis.com/maps/api/js?key=`]')) {
         resolve();
         return;
       }

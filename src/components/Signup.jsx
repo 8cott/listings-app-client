@@ -41,7 +41,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      handleError("Passwords don't match!");
+      handleError(`Passwords don't match!`);
       return;
     }
     try {
@@ -88,17 +88,17 @@ const Signup = () => {
       }}
     >
       <Paper elevation={3} sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}>
-        <Typography variant="h5" component="div" sx={{ textAlign: 'center', marginBottom:"1rem" }}>
+        <Typography variant='h5' component='div' sx={{ textAlign: 'center', marginBottom:'1rem' }}>
           Signup
         </Typography>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
-                label="Email"
-                name="email"
+                label='Email'
+                name='email'
                 value={email}
-                placeholder="Enter your email"
+                placeholder='Enter your email'
                 onChange={handleOnChange}
                 required
                 fullWidth
@@ -106,10 +106,10 @@ const Signup = () => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                label="Username"
-                name="username"
+                label='Username'
+                name='username'
                 value={username}
-                placeholder="Enter your username"
+                placeholder='Enter your username'
                 onChange={handleOnChange}
                 required
                 fullWidth
@@ -117,11 +117,11 @@ const Signup = () => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                label="Password"
-                type="password"
-                name="password"
+                label='Password'
+                type='password'
+                name='password'
                 value={password}
-                placeholder="Enter your password"
+                placeholder='Enter your password'
                 onChange={handleOnChange}
                 required
                 fullWidth
@@ -129,11 +129,11 @@ const Signup = () => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                label="Confirm Password"
-                type="password"
-                name="confirmPassword"
+                label='Confirm Password'
+                type='password'
+                name='confirmPassword'
                 value={confirmPassword}
-                placeholder="Enter your password again"
+                placeholder='Enter your password again'
                 onChange={handleOnChange}
                 required
                 fullWidth
@@ -141,7 +141,7 @@ const Signup = () => {
             </Grid>
           </Grid>
           <br />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ marginBottom: '1rem' }}>
+          <Button type='submit' variant='contained' color='primary' fullWidth sx={{ marginBottom: '1rem' }}>
             Submit
           </Button>
           <Typography>

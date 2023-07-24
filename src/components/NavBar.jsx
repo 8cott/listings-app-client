@@ -82,7 +82,7 @@ function AppBarMUI() {
 
   return (
     <>
-      <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
+      <AppBar position='fixed' sx={{ backgroundColor: 'black' }}>
         <Toolbar
           disableGutters
           sx={{
@@ -97,7 +97,7 @@ function AppBarMUI() {
           >
             <img
               src={SRCLogoWhite}
-              alt="Logo"
+              alt='Logo'
               style={{ height: '2.5rem', cursor: 'pointer' }}
               onClick={navigateToHome}
             />
@@ -107,21 +107,21 @@ function AppBarMUI() {
           >
             <img
               src={SRLogoWhite}
-              alt="Logo"
+              alt='Logo'
               style={{ height: '2.5rem', cursor: 'pointer' }}
               onClick={navigateToHome}
             />
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <MenuIcon sx={{ color: 'white', fontSize: '2rem' }} />
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '2rem' }}
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
@@ -143,7 +143,7 @@ function AppBarMUI() {
                   key={setting}
                   onClick={() => handleMenuClick(setting)}
                 >
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign='center'>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

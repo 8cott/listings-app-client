@@ -72,32 +72,32 @@ const Login = () => {
       }}
     >
       <Paper elevation={3} sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}>
-        <Typography variant="h5" component="div" sx={{ textAlign: 'center' }}>
+        <Typography variant='h5' component='div' sx={{ textAlign: 'center' }}>
           Login
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Email"
-            name="email"
+            label='Email'
+            name='email'
             value={email}
-            placeholder="Enter your email"
+            placeholder='Enter your email'
             onChange={handleOnChange}
             required
             fullWidth
-            margin="normal"
+            margin='normal'
           />
           <TextField
-            label="Password"
-            type="password"
-            name="password"
+            label='Password'
+            type='password'
+            name='password'
             value={password}
-            placeholder="Enter your password"
+            placeholder='Enter your password'
             onChange={handleOnChange}
             required
             fullWidth
-            margin="normal"
+            margin='normal'
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ marginTop: '1rem', marginBottom: '1rem' }}>
+          <Button type='submit' variant='contained' color='primary' fullWidth sx={{ marginTop: '1rem', marginBottom: '1rem' }}>
             Submit
           </Button>
           <Typography>

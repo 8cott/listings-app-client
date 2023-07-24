@@ -16,15 +16,15 @@ const App = () => {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/listings/create" element={<Create />} />
-          <Route path="/listings/:id/edit" element={<Edit />} />
-          <Route path="/listings/:id" element={<Show />} />
-          <Route path="/" element={<Index />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/listings/create' element={<Create />} />
+          <Route path='/listings/:id/edit' element={<Edit />} />
+          <Route path='/listings/:id' element={<Show />} />
+          <Route path='/' element={<Index />} />
         </Routes>
         <ToastContainer
-          position="bottom-right"
+          position='bottom-right'
           autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
@@ -33,7 +33,7 @@ const App = () => {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="light"
+          theme='light'
         />
       </BrowserRouter>
     </AuthProvider>

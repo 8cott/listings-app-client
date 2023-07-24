@@ -26,7 +26,6 @@ const Edit = () => {
     image_url: '',
   });
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
   const { isLoggedIn, user } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -43,7 +42,7 @@ const Edit = () => {
   // Fetch listing data from API
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/listings/${id}`)
+      .get(`http://localhost:8000/listings/${id}`)
       .then((response) => {
         const listingData = response.data;
         setFormData(listingData);
@@ -73,7 +72,7 @@ const Edit = () => {
 
     // Send PUT request to API to update listing
     axios
-      .put(`${API_BASE_URL}/listings/${id}`, formData)
+      .put(`http://localhost:8000/listings/${id}`, formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${id}`);
@@ -96,7 +95,7 @@ const Edit = () => {
     if (confirmed) {
       // Send DELETE request to API to delete listing
       axios
-        .delete(`${API_BASE_URL}/listings/${id}`)
+        .delete(`http://localhost:8000/listings/${id}`)
         .then((response) => {
           console.log(response.data);
           navigate('/');

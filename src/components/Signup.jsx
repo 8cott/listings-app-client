@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { TextField, Button, Typography, Box, Grid, Paper } from '@mui/material';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -34,11 +35,9 @@ const Signup = () => {
       return;
     }
 
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
-
     try {
       const { data } = await axios.post(
-        `${API_BASE_URL}/signup`,
+        'http://localhost:8000/signup',
         {
           ...inputValue,
         },
@@ -67,55 +66,80 @@ const Signup = () => {
   };
 
   return (
-    <div className="form_container">
-      <h2>Signup Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            placeholder="Enter your email"
-            onChange={handleOnChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            placeholder="Enter your username"
-            onChange={handleOnChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={handleOnChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={confirmPassword}
-            placeholder="Enter your password again"
-            onChange={handleOnChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-        <span>
-          Already have an account? <Link to={'/login'}>Login</Link>
-        </span>
-      </form>
-    </div>
+    <Box
+      sx={{
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        marginTop: '-24em',
+      }}
+    >
+      <Paper elevation={3} sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}>
+        <Typography variant="h5" component="div" sx={{ textAlign: 'center', marginBottom:"1rem" }}>
+          Signup
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                label="Email"
+                name="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={handleOnChange}
+                required
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Username"
+                name="username"
+                value={username}
+                placeholder="Enter your username"
+                onChange={handleOnChange}
+                required
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Password"
+                type="password"
+                name="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={handleOnChange}
+                required
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Confirm Password"
+                type="password"
+                name="confirmPassword"
+                value={confirmPassword}
+                placeholder="Enter your password again"
+                onChange={handleOnChange}
+                required
+                fullWidth
+              />
+            </Grid>
+          </Grid>
+          <br />
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ marginBottom: '1rem' }}>
+            Submit
+          </Button>
+          <Typography>
+            Already have an account? <Link to={'/login'}>Login</Link>
+          </Typography>
+        </form>
+      </Paper>
+    </Box>
   );
 };
 

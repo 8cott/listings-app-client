@@ -25,7 +25,6 @@ const Create = () => {
     image_url: '',
   });
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
   const { isLoggedIn, user } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -58,7 +57,7 @@ const Create = () => {
 
     // Send POST request to API to create new listing
     axios
-      .post(`${API_BASE_URL}/listings`, formData)
+      .post('http://localhost:8000/listings/', formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${response.data._id}`);

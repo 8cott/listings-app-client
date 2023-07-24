@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Divider } from '@mui/material';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8000';
 
 const Show = () => {
   const { id } = useParams();
@@ -29,7 +29,6 @@ const Show = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-        setError('Failed to fetch listing data. Please try again.');
       });
   }, [id]);
 
@@ -44,7 +43,7 @@ const Show = () => {
     );
     if (confirmed) {
       axios
-        .delete(`${API_BASE_URL}/listings/${id}`)
+        .delete(`http://localhost:8000/listings/${id}`)
         .then((response) => {
           console.log(response.data);
           navigate('/');

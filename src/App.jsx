@@ -9,12 +9,14 @@ import Login from './components/Login';
 import { AuthProvider } from './components/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Debug from './components/debug';
 
 const App = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
         <NavBar />
+        <Debug />
         <Routes>
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />

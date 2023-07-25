@@ -59,7 +59,7 @@ const Create = () => {
 
     // Send POST request to API to create new listing
     axios
-      .post(`${API_BASE_URL}/listings/`, formData)
+      .post(`${API_BASE_URL.replace(/\/$/, '')}/listings/`, formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${response.data._id}`);

@@ -44,7 +44,7 @@ const Edit = () => {
   // Fetch listing data from API
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/listings/${id}`)
+      .get(`${API_BASE_URL.replace(/\/$/, '')}/listings/${id}`)
       .then((response) => {
         const listingData = response.data;
         setFormData(listingData);
@@ -74,7 +74,7 @@ const Edit = () => {
 
     // Send PUT request to API to update listing
     axios
-      .put(`${API_BASE_URL}/listings/${id}`, formData)
+      .put(`${API_BASE_URL.replace(/\/$/, '')}/listings/${id}`, formData)
       .then((response) => {
         console.log(response.data);
         navigate(`/listings/${id}`);

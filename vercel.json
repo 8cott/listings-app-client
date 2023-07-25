@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "src/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*\\.(json|js|jsx|ts|tsx|css|less|sass|scss|wasm))$",
+        "dest": "index.html"
+      },
+      {
+        "src": "/",
+        "dest": "index.html"
+      }
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "optimize": {
+      "minify": true,
+      "target": "es2020"
+    }
+  }
+  

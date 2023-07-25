@@ -49,7 +49,7 @@ const Index = () => {
   // Fetch all listings from the database
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL.replace(/\/$/, '')}/listings`)
+      .get(`${API_BASE_URL}/listings`)
       .then((response) => {
         return response.data;
       })

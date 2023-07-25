@@ -22,10 +22,6 @@
     ],
     "env": {
       "NODE_ENV": "production"
-    },
-    "optimize": {
-      "minify": true,
-      "target": "es2020"
     }
   }
   

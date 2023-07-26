@@ -10,7 +10,7 @@ Check out the live demo of the Real Estate Listings App [here](https://listings-
 ## Table of Contents
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Deployment] (#deployment)
+- [Deployment](#deployment)
 - [License](#license)
 - [Contact Information](#contact-information)
 
@@ -34,6 +34,8 @@ To run the client locally, follow these steps:
 The client side of this app is deployed on [Vercel](https://vercel.com/)
 
 ## License
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact Information

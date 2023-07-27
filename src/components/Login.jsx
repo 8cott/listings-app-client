@@ -65,13 +65,17 @@ const Login = () => {
         paddingLeft: '1rem',
         paddingRight: '1rem',
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        height: '100vh',
-        marginTop: '-28em',
+        height: 'calc(100vh - 5.5rem)',
+        marginTop: '8rem',
       }}
     >
-      <Paper elevation={3} sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}>
+      <Paper
+        elevation={3}
+        sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}
+      >
         <Typography variant='h5' component='div' sx={{ textAlign: 'center' }}>
           Login
         </Typography>
@@ -97,7 +101,13 @@ const Login = () => {
             fullWidth
             margin='normal'
           />
-          <Button type='submit' variant='contained' color='primary' fullWidth sx={{ marginTop: '1rem', marginBottom: '1rem' }}>
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            fullWidth
+            sx={{ marginTop: '1rem', marginBottom: '1rem' }}
+          >
             Submit
           </Button>
           <Typography>

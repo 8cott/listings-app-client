@@ -30,7 +30,11 @@ const Signup = () => {
     let errorMessage = 'An error occurred. Please try again later.';
     if (typeof error === 'string') {
       errorMessage = `Error: ${error}`;
-    } else if (error.response && error.response.data && error.response.data.error) {
+    } else if (
+      error.response &&
+      error.response.data &&
+      error.response.data.error
+    ) {
       errorMessage = `Error: ${error.response.data.error}`;
     }
     toast.error(errorMessage, {});
@@ -65,7 +69,7 @@ const Signup = () => {
     } catch (error) {
       handleError(error);
     }
-  
+
     setInputValue({
       ...inputValue,
       email: '',
@@ -73,7 +77,7 @@ const Signup = () => {
       username: '',
       confirmPassword: '',
     });
-  };  
+  };
 
   return (
     <Box
@@ -81,14 +85,22 @@ const Signup = () => {
         paddingLeft: '1rem',
         paddingRight: '1rem',
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        height: '100vh',
-        marginTop: '-24em',
+        height: 'calc(100vh - 5.5rem)',
+        marginTop: '8rem',
       }}
     >
-      <Paper elevation={3} sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}>
-        <Typography variant='h5' component='div' sx={{ textAlign: 'center', marginBottom:'1rem' }}>
+      <Paper
+        elevation={3}
+        sx={{ width: '75%', maxWidth: '400px', padding: '1rem' }}
+      >
+        <Typography
+          variant='h5'
+          component='div'
+          sx={{ textAlign: 'center', marginBottom: '1rem' }}
+        >
           Signup
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -141,7 +153,13 @@ const Signup = () => {
             </Grid>
           </Grid>
           <br />
-          <Button type='submit' variant='contained' color='primary' fullWidth sx={{ marginBottom: '1rem' }}>
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            fullWidth
+            sx={{ marginBottom: '1rem' }}
+          >
             Submit
           </Button>
           <Typography>

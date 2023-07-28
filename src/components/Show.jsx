@@ -3,14 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 import axios from 'axios';
-
 import GoogleMap from './GoogleMap';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Divider } from '@mui/material';
+import { Divider, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -18,6 +17,7 @@ const Show = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [listing, setListing] = useState(null);
+  const [open, setOpen] = useState(false);
   const { isLoggedIn, user } = useContext(AuthContext);
 
   // Fetch listing data from API
@@ -38,21 +38,25 @@ const Show = () => {
 
   // Handle delete listing
   const handleDelete = () => {
-    const confirmed = window.confirm(
-      'Are you sure you want to delete this listing?'
-    );
-    if (confirmed) {
-      axios
-        .delete(`${API_BASE_URL}/listings/${id}`)
-        .then((response) => {
-          console.log(response.data);
-          navigate('/');
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          setError('Failed to delete listing. Please try again.');
-        });
-    }
+    setOpen(true);
+  };
+
+  const handleConfirm = () => {
+    setOpen(false);
+    axios
+      .delete(`${API_BASE_URL}/listings/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setError('Failed to delete listing. Please try again.');
+      });
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
   };
 
   return (
@@ -128,6 +132,30 @@ const Show = () => {
           </Button>
         </CardActions>
       </Card>
+
+      <Dialog
+        open={open}
+        onClose={handleCancel}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Are you sure you want to delete this listing?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Once deleted, you will not be able to recover this listing.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCancel} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleConfirm} color="primary" autoFocus>
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

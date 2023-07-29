@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -15,7 +17,7 @@ import SRCLogoWhite from '../assets/src-logo-white.png';
 import SRLogoWhite from '../assets/sr-logo-white.png';
 import { toast } from 'react-toastify';
 
-function AppBarMUI() {
+function AppBarMUI({ toggleTheme, themeMode }) {
   const { isLoggedIn, setIsLoggedIn } = React.useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -90,6 +92,8 @@ function AppBarMUI() {
             '@media (min-width:0px)': { minHeight: '5rem' },
             paddingLeft: '2rem',
             paddingRight: '2rem',
+            display: 'flex',
+            justifyContent: 'space-between',
           }}
         >
           <Box
@@ -114,6 +118,10 @@ function AppBarMUI() {
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ flexGrow: 0 }}>
+            {/* Toggle theme IconButton */}
+            <IconButton onClick={toggleTheme} sx={{ p: 0, mr: 2 }}>
+              {themeMode === 'light' ? <Brightness4Icon sx={{ color: 'white', fontSize: '1.5rem' }} /> : <Brightness7Icon sx={{ color: 'white', fontSize: '1.5rem' }} />}
+            </IconButton>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <MenuIcon sx={{ color: 'white', fontSize: '2rem' }} />
@@ -156,4 +164,4 @@ function AppBarMUI() {
   );
 }
 
-export default AppBarMUI;
+export default AppBarMUI

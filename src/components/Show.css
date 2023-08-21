@@ -1,0 +1,22 @@
+.show-div {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.show-card {
+    max-width: 50rem;
+}
+
+.show-card-img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.show-card-content {
+    text-align: center;
+}
+
+.show-card-actions {
+    justify-content: center;
+}

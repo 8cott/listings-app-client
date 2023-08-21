@@ -46,13 +46,31 @@ const Create = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSuccess = (msg) => {
-    toast.success('Listing Created!');
-  };
+  // Success Toast Notification
+  const handleSuccess = (msg = 'Listing Created!') => {
+    toast.success(msg);
+};
 
-  const handleError = (err) => {
-    toast.error('Error Creating Listing!');
-  };
+// Error Toast Notifications
+const handleError = (error) => {
+  if (error.response) {
+      switch (error.response.status) {
+          case 400:
+              toast.error('Invalid form data. Please check your inputs.');
+              break;
+          case 500:
+              toast.error('Internal server error. Please try again later.');
+              break;
+          default:
+              toast.error('An error occurred. Please try again.');
+              break;
+      }
+  } else if (error.request) {
+      toast.error('No response from the server. Please try again later.');
+  } else {
+      toast.error('An error occurred. Please try again.');
+  }
+};
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -62,24 +80,14 @@ const Create = () => {
       .post(`${API_BASE_URL}/listings/`, formData)
       .then((response) => {
         console.log(response.data);
+        handleSuccess();
         navigate(`/listings/${response.data._id}`);
       })
       .catch((error) => {
         console.error('Error:', error);
-        if (error.response) {
-          if (error.response.status === 400) {
-            setError('Invalid form data. Please check your inputs.');
-          } else if (error.response.status === 500) {
-            setError('Internal server error. Please try again later.');
-          } else {
-            setError('An error occurred. Please try again.');
-          }
-        } else if (error.request) {
-          setError('No response from the server. Please try again later.');
-        } else {
-          setError('An error occurred. Please try again.');
-        }
-      });
+        handleError(error);
+    });
+    
   };
 
   return (
@@ -224,7 +232,6 @@ const Create = () => {
               name="square_feet"
               value={formData.square_feet}
               onChange={handleChange}
-              required
               fullWidth
             />
           </Grid>
@@ -244,6 +251,7 @@ const Create = () => {
               value={formData.description}
               onChange={handleChange}
               fullWidth
+              required
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4}>

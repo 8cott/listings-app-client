@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import TypoDivider from './TypoDivider';
 import axios from 'axios';
 import {
   Table,
@@ -13,12 +14,12 @@ import {
   Typography,
   Card,
   CardContent,
-  Divider,
   Grid,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
 import { ViewList, ViewModule } from '@mui/icons-material';
+import './Index.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -61,15 +62,13 @@ const Index = () => {
       });
   }, []);
 
+
+
   return (
     <div>
-      <Paper elevation={3} sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
-        <Box p={2} sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography
-            variant='h5'
-            component='div'
-            sx={{ flexGrow: 1, textAlign: 'center' }}
-          >
+      <Paper elevation={3} className='index-paper'>
+        <Box p={2} className='index-box'>
+          <Typography variant='h5' component='div' className='index-typo'>
             Scott's Listings
           </Typography>
           <div>
@@ -77,10 +76,10 @@ const Index = () => {
               onClick={handleViewModule}
               disabled={viewMode === 'module'}
             >
-              <ViewModule style={{ fontSize: '2rem' }} />
+              <ViewModule className='index-view-module' />
             </IconButton>
             <IconButton onClick={handleViewList} disabled={viewMode === 'list'}>
-              <ViewList style={{ fontSize: '2rem' }} />
+              <ViewList className='index-view-list' />
             </IconButton>
           </div>
         </Box>
@@ -90,7 +89,7 @@ const Index = () => {
         <Box p={2}>
           {viewMode === 'list' ? (
             <Table stickyHeader>
-              <TableHead style={{ position: 'sticky', top: '4.8rem' }}>
+              <TableHead className='index-table-head'>
                 <TableRow>
                   <TableCell>Image</TableCell>
                   <TableCell>Address</TableCell>
@@ -114,8 +113,7 @@ const Index = () => {
                           <img
                             src={listing.image_url}
                             alt='Listing Image'
-                            className='thumbnail'
-                            style={{ width: '80px', height: 'auto' }}
+                            className='index-table-image'
                           />
                         </Link>
                       </TableCell>
@@ -137,7 +135,9 @@ const Index = () => {
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell colSpan={11}>No listings available.</TableCell>
+                    <TableCell className='index-table-row'>
+                      No listings available.
+                    </TableCell>
                   </TableRow>
                 )}
               </TableBody>
@@ -149,83 +149,42 @@ const Index = () => {
                   <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                     <Link
                       to={`/listings/${listing._id}`}
-                      style={{ textDecoration: 'none', color: 'inherit' }}
+                      className='index-card-link'
                     >
-                      <Card sx={{ width: '100%', flexShrink: 0 }}>
+                      <Card className='index-card'>
                         <img
-                          style={{ width: '100%', objectFit: 'contain' }}
+                          className='index-card-img'
                           src={listing.image_url}
                           title='listing image'
                           alt='listing image'
                         />
-
-                        <CardContent sx={{ textAlign: 'center' }}>
-                          <Typography
-                            gutterBottom
-                            variant='h6'
-                            component='div'
-                            sx={{ fontWeight: 'bold' }}
-                          >
+                        <CardContent className='index-card-content'>
+                          <TypoDivider variant='h6'>
                             {listing.address}, Apt {listing.apt_num}
-                          </Typography>
-                          <Divider />
-                          <Typography
-                            gutterBottom
-                            variant='body2'
-                            component='div'
-                          >
+                          </TypoDivider>
+                          <TypoDivider variant='body2'>
                             {listing.status}
-                          </Typography>
-                          <Divider />
-                          <Typography
-                            gutterBottom
-                            variant='body2'
-                            component='div'
-                          >
+                          </TypoDivider>
+                          <TypoDivider variant='body2'>
                             {listing.city}, {listing.state} {listing.zip_code}
-                          </Typography>
-                          <Divider />
-                          <Typography
-                            gutterBottom
-                            variant='body2'
-                            component='div'
-                          >
+                          </TypoDivider>
+                          <TypoDivider variant='body2'>
                             {listing.neighborhood} / {listing.borough}
-                          </Typography>
-                          <Divider />
-                          <Typography
-                            gutterBottom
-                            variant='body2'
-                            component='div'
-                          >
+                          </TypoDivider>
+                          <TypoDivider variant='body2'>
                             {listing.property_type}
-                          </Typography>
-                          <Divider />
-                          <Typography
-                            gutterBottom
-                            variant='body2'
-                            component='div'
-                          >
+                          </TypoDivider>
+                          <TypoDivider variant='body2'>
                             Bedrooms: {listing.bedrooms} Bathrooms:{' '}
                             {listing.bathrooms}
-                          </Typography>
-                          <Divider />
-                          <Typography
-                            gutterBottom
-                            variant='body2'
-                            component='div'
-                          >
+                          </TypoDivider>
+                          <TypoDivider variant='body2'>
                             Price: {listing.price}
-                          </Typography>
-                          <Divider />
-                          <Typography
-                            gutterBottom
-                            variant='body2'
-                            component='div'
-                          >
+                          </TypoDivider>
+                          <TypoDivider variant='body2'>
                             Square Feet: {listing.square_feet} | Price Per SqFt:{' '}
                             {listing.price_per_sq_ft}
-                          </Typography>
+                          </TypoDivider>
                         </CardContent>
                       </Card>
                     </Link>

@@ -1,0 +1,59 @@
+.index-paper {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.index-box {
+    display: flex;
+    align-items: center;
+}
+
+.index-typo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.index-view-module {
+    font-size: 2rem;
+}
+
+.index-view-list {
+    font-size: 2rem;
+}
+
+.index-table-head {
+    position: sticky;
+    top: 4.8rem;
+}
+
+.index-table-image {
+    width: 80px;
+    height: auto;
+}
+
+.index-table-row {
+    column-span: 11;
+}
+
+.index-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.index-card {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.index-card-img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.index-card-content {
+    text-align: center;
+}
+
+.index-card-typo {
+    font-weight: bold;
+}

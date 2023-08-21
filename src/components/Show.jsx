@@ -4,12 +4,22 @@ import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 import axios from 'axios';
 import GoogleMap from './GoogleMap';
+import TypoDivider from './TypoDivider';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Divider, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import {
+  Divider,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from '@mui/material';
+import { toast } from 'react-toastify';
+import './Show.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -41,72 +51,57 @@ const Show = () => {
     setOpen(true);
   };
 
+  // Handle delete confirmation
   const handleConfirm = () => {
     setOpen(false);
     axios
       .delete(`${API_BASE_URL}/listings/${id}`)
       .then((response) => {
         console.log(response.data);
+        toast.success('Listing successfully deleted!');
         navigate('/');
       })
       .catch((error) => {
         console.error('Error:', error);
+        toast.error('Failed to delete listing. Please try again.');
         setError('Failed to delete listing. Please try again.');
       });
   };
-
+  
+  // Handle delete cancellation
   const handleCancel = () => {
     setOpen(false);
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
-      <Card sx={{ maxWidth: '50rem' }}>
+    <div className='show-div'>
+      <Card className='show-card'>
         <img
-          style={{ width: '100%', objectFit: 'contain' }}
+          className='show-card-img'
           src={listing.image_url}
           title='listing image'
           alt='listing image'
         />
-        <CardContent sx={{ textAlign: 'center' }}>
-          <Typography
-            gutterBottom
-            variant='h1'
-            component='div'
-            sx={{ fontWeight: 'bold', fontSize: '2rem' }}
-          >
+        <CardContent className='show-card-content'>
+          <TypoDivider variant='h4'>
             {listing.address}, Apt {listing.apt_num}
-          </Typography>
-          <Divider />
-          <Typography gutterBottom variant='h6' component='div'>
-            {listing.status}
-          </Typography>
-          <Divider />
-          <Typography gutterBottom variant='h6' component='div'>
+          </TypoDivider>
+          <TypoDivider variant='h6'>{listing.status}</TypoDivider>
+          <TypoDivider variant='h6'>
             {listing.city}, {listing.state} {listing.zip_code}
-          </Typography>
-          <Divider />
-          <Typography gutterBottom variant='h6' component='div'>
+          </TypoDivider>
+          <TypoDivider variant='h6'>
             {listing.neighborhood} / {listing.borough}
-          </Typography>
-          <Divider />
-          <Typography gutterBottom variant='h6' component='div'>
-            {listing.property_type}
-          </Typography>
-          <Divider />
-          <Typography gutterBottom variant='h6' component='div'>
+          </TypoDivider>
+          <TypoDivider variant='h6'>{listing.property_type}</TypoDivider>
+          <TypoDivider variant='h6'>
             Bedrooms: {listing.bedrooms} Bathrooms: {listing.bathrooms}
-          </Typography>
-          <Divider />
-          <Typography gutterBottom variant='h6' component='div'>
-            Price: {listing.price}
-          </Typography>
-          <Divider />
-          <Typography gutterBottom variant='h6' component='div'>
+          </TypoDivider>
+          <TypoDivider variant='h6'>Price: {listing.price}</TypoDivider>
+          <TypoDivider variant='h6'>
             Square Feet: {listing.square_feet} | Price Per SqFt:{' '}
             {listing.price_per_sq_ft}
-          </Typography>
-          <Divider />
+          </TypoDivider>
           <Typography
             variant='body1'
             color='text.secondary'
@@ -123,8 +118,12 @@ const Show = () => {
             zipCode={listing.zip_code}
           />
         </CardContent>
-        <CardActions sx={{ justifyContent: 'center' }}>
-          <Button size='large' onClick={() => navigate(`/listings/${id}/edit`)} disabled={!isLoggedIn}>
+        <CardActions className='show-card-actions'>
+          <Button
+            size='large'
+            onClick={() => navigate(`/listings/${id}/edit`)}
+            disabled={!isLoggedIn}
+          >
             Edit
           </Button>
           <Button size='large' onClick={handleDelete} disabled={!isLoggedIn}>
@@ -136,22 +135,22 @@ const Show = () => {
       <Dialog
         open={open}
         onClose={handleCancel}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Are you sure you want to delete this listing?"}
+        <DialogTitle id='alert-dialog-title'>
+          {'Are you sure you want to delete this listing?'}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText id='alert-dialog-description'>
             Once deleted, you will not be able to recover this listing.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCancel} color="primary">
+          <Button onClick={handleCancel} color='primary'>
             Cancel
           </Button>
-          <Button onClick={handleConfirm} color="primary" autoFocus>
+          <Button onClick={handleConfirm} color='primary' autoFocus>
             Delete
           </Button>
         </DialogActions>

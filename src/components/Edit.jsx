@@ -72,14 +72,31 @@ const Edit = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  // Handle form submission
-  const handleSuccess = (msg) => {
-    toast.success('Listing Updated!');
-  };
+  // Form Submission Toast
+  const handleSuccess = (msg = 'Listing Updated!') => {
+    toast.success(msg);
+};
 
-  const handleError = (err) => {
-    toast.error('Error Updating Listing!');
-  };
+  // Error Toast Notifications
+  const handleError = (error) => {
+    if (error.response) {
+        switch (error.response.status) {
+            case 400:
+                toast.error('Invalid form data. Please check your inputs.');
+                break;
+            case 500:
+                toast.error('Internal server error. Please try again later.');
+                break;
+            default:
+                toast.error('An error occurred. Please try again.');
+                break;
+        }
+    } else if (error.request) {
+        toast.error('No response from the server. Please try again later.');
+    } else {
+        toast.error('An error occurred. Please try again.');
+    }
+};
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -89,17 +106,14 @@ const Edit = () => {
       .put(`${API_BASE_URL}/listings/${id}`, formData)
       .then((response) => {
         console.log(response.data);
+        handleSuccess();
         navigate(`/listings/${id}`);
       })
       .catch((error) => {
         console.error('Error:', error);
-        setError('Failed to update listing. Please try again.');
-      });
+        handleError(error);
+    });    
   };
-
-  if (error) {
-    return <p className='error'>{error}</p>;
-  }
 
   // Handle delete listing
   const handleDelete = () => {
@@ -113,19 +127,21 @@ const Edit = () => {
       .delete(`${API_BASE_URL}/listings/${id}`)
       .then((response) => {
         console.log(response.data);
+        toast.success('Listing successfully deleted!');
         navigate('/');
       })
       .catch((error) => {
         console.error('Error:', error);
+        toast.error('Failed to delete listing. Please try again.');
         setError('Failed to delete listing. Please try again.');
       });
   };
-
+  
   // Handle delete cancellation
   const handleCancel = () => {
     setOpen(false);
   };
-
+  
   return (
     <Box sx={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
       <Paper elevation={3} sx={{ marginBottom: '2rem', marginTop: '1rem' }}>

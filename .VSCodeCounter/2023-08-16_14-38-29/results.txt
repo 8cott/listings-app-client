@@ -1,0 +1,59 @@
+Date : 2023-08-16 14:38:29
+Directory : /Users/scottrubin/Coding/projects/listings-app-client
+Total : 23 files,  6330 codes, 124 comments, 158 blanks, all 6612 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JSON           |          3 |      4,320 |          0 |          3 |      4,323 |
+| JavaScript JSX |         13 |      1,845 |         38 |        127 |      2,010 |
+| JavaScript     |          3 |        104 |         86 |         13 |        203 |
+| Markdown       |          1 |         33 |          0 |         11 |         44 |
+| HTML           |          2 |         27 |          0 |          3 |         30 |
+| CSS            |          1 |          1 |          0 |          1 |          2 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                 | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                    |         23 |      6,330 |        124 |        158 |      6,612 |
+| . (Files)                                                                            |          7 |      4,386 |          1 |         18 |      4,405 |
+| dist                                                                                 |          3 |         99 |         85 |         13 |        197 |
+| dist (Files)                                                                         |          1 |         14 |          0 |          2 |         16 |
+| dist/assets                                                                          |          2 |         85 |         85 |         11 |        181 |
+| src                                                                                  |         13 |      1,845 |         38 |        127 |      2,010 |
+| src (Files)                                                                          |          2 |         65 |          2 |          8 |         75 |
+| src/components                                                                       |         11 |      1,780 |         36 |        119 |      1,935 |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                             | language       | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| /Users/scottrubin/Coding/projects/listings-app-client/.eslintrc.cjs                  | JavaScript     |         15 |          0 |          1 |         16 |
+| /Users/scottrubin/Coding/projects/listings-app-client/dist/assets/index-1e23e8f4.js  | JavaScript     |         84 |         85 |         10 |        179 |
+| /Users/scottrubin/Coding/projects/listings-app-client/dist/assets/index-55fec1ff.css | CSS            |          1 |          0 |          1 |          2 |
+| /Users/scottrubin/Coding/projects/listings-app-client/dist/index.html                | HTML           |         14 |          0 |          2 |         16 |
+| /Users/scottrubin/Coding/projects/listings-app-client/index.html                     | HTML           |         13 |          0 |          1 |         14 |
+| /Users/scottrubin/Coding/projects/listings-app-client/package-lock.json              | JSON           |      4,276 |          0 |          1 |      4,277 |
+| /Users/scottrubin/Coding/projects/listings-app-client/package.json                   | JSON           |         39 |          0 |          1 |         40 |
+| /Users/scottrubin/Coding/projects/listings-app-client/readme.md                      | Markdown       |         33 |          0 |         11 |         44 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/App.jsx                    | JavaScript JSX |         57 |          2 |          6 |         65 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/AuthContext.jsx | JavaScript JSX |         39 |          3 |          7 |         49 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Create.jsx      | JavaScript JSX |        254 |          3 |         12 |        269 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Edit.jsx        | JavaScript JSX |        323 |          7 |         17 |        347 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/GoogleMap.jsx   | JavaScript JSX |         38 |          0 |          8 |         46 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Index.jsx       | JavaScript JSX |        230 |          4 |         12 |        246 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Login.jsx       | JavaScript JSX |        114 |          0 |          9 |        123 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/NavBar.jsx      | JavaScript JSX |        145 |          9 |         14 |        168 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Show.jsx        | JavaScript JSX |        151 |          2 |         11 |        164 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Signup.jsx      | JavaScript JSX |        163 |          1 |         11 |        175 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Styles.jsx      | JavaScript JSX |          0 |          0 |          1 |          1 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/test.jsx        | JavaScript JSX |        323 |          7 |         17 |        347 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/main.jsx                   | JavaScript JSX |          8 |          0 |          2 |         10 |
+| /Users/scottrubin/Coding/projects/listings-app-client/vercel.json                    | JSON           |          5 |          0 |          1 |          6 |
+| /Users/scottrubin/Coding/projects/listings-app-client/vite.config.js                 | JavaScript     |          5 |          1 |          2 |          8 |
+| Total                                                                                |                |      6,330 |        124 |        158 |      6,612 |
++--------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

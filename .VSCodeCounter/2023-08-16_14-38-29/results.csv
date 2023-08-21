@@ -1,0 +1,25 @@
+"filename", "language", "JavaScript JSX", "JSON", "JavaScript", "HTML", "CSS", "Markdown", "comment", "blank", "total"
+"/Users/scottrubin/Coding/projects/listings-app-client/.eslintrc.cjs", "JavaScript", 0, 0, 15, 0, 0, 0, 0, 1, 16
+"/Users/scottrubin/Coding/projects/listings-app-client/dist/assets/index-1e23e8f4.js", "JavaScript", 0, 0, 84, 0, 0, 0, 85, 10, 179
+"/Users/scottrubin/Coding/projects/listings-app-client/dist/assets/index-55fec1ff.css", "CSS", 0, 0, 0, 0, 1, 0, 0, 1, 2
+"/Users/scottrubin/Coding/projects/listings-app-client/dist/index.html", "HTML", 0, 0, 0, 14, 0, 0, 0, 2, 16
+"/Users/scottrubin/Coding/projects/listings-app-client/index.html", "HTML", 0, 0, 0, 13, 0, 0, 0, 1, 14
+"/Users/scottrubin/Coding/projects/listings-app-client/package-lock.json", "JSON", 0, 4276, 0, 0, 0, 0, 0, 1, 4277
+"/Users/scottrubin/Coding/projects/listings-app-client/package.json", "JSON", 0, 39, 0, 0, 0, 0, 0, 1, 40
+"/Users/scottrubin/Coding/projects/listings-app-client/readme.md", "Markdown", 0, 0, 0, 0, 0, 33, 0, 11, 44
+"/Users/scottrubin/Coding/projects/listings-app-client/src/App.jsx", "JavaScript JSX", 57, 0, 0, 0, 0, 0, 2, 6, 65
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/AuthContext.jsx", "JavaScript JSX", 39, 0, 0, 0, 0, 0, 3, 7, 49
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Create.jsx", "JavaScript JSX", 254, 0, 0, 0, 0, 0, 3, 12, 269
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Edit.jsx", "JavaScript JSX", 323, 0, 0, 0, 0, 0, 7, 17, 347
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/GoogleMap.jsx", "JavaScript JSX", 38, 0, 0, 0, 0, 0, 0, 8, 46
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Index.jsx", "JavaScript JSX", 230, 0, 0, 0, 0, 0, 4, 12, 246
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Login.jsx", "JavaScript JSX", 114, 0, 0, 0, 0, 0, 0, 9, 123
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/NavBar.jsx", "JavaScript JSX", 145, 0, 0, 0, 0, 0, 9, 14, 168
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Show.jsx", "JavaScript JSX", 151, 0, 0, 0, 0, 0, 2, 11, 164
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Signup.jsx", "JavaScript JSX", 163, 0, 0, 0, 0, 0, 1, 11, 175
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Styles.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/test.jsx", "JavaScript JSX", 323, 0, 0, 0, 0, 0, 7, 17, 347
+"/Users/scottrubin/Coding/projects/listings-app-client/src/main.jsx", "JavaScript JSX", 8, 0, 0, 0, 0, 0, 0, 2, 10
+"/Users/scottrubin/Coding/projects/listings-app-client/vercel.json", "JSON", 0, 5, 0, 0, 0, 0, 0, 1, 6
+"/Users/scottrubin/Coding/projects/listings-app-client/vite.config.js", "JavaScript", 0, 0, 5, 0, 0, 0, 1, 2, 8
+"Total", "-", 1845, 4320, 104, 27, 1, 33, 124, 158, 6612

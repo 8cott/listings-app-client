@@ -1,0 +1,41 @@
+Date : 2024-01-22 14:08:09
+Directory : /Users/scottrubin/Coding/projects/listings-app-client
+Total : 11 files,  87 codes, 3 comments, 25 blanks, all 115 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| PostCSS        |          3 |         95 |          0 |         22 |        117 |
+| JavaScript     |          1 |          2 |         -2 |          0 |          0 |
+| JavaScript JSX |          7 |        -10 |          5 |          3 |         -2 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                 | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                    |         11 |         87 |          3 |         25 |        115 |
+| dist                                                                                 |          1 |          2 |         -2 |          0 |          0 |
+| dist/assets                                                                          |          1 |          2 |         -2 |          0 |          0 |
+| src                                                                                  |         10 |         85 |          5 |         25 |        115 |
+| src/components                                                                       |         10 |         85 |          5 |         25 |        115 |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                             | language       | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| /Users/scottrubin/Coding/projects/listings-app-client/dist/assets/index-1e23e8f4.js  | JavaScript     |          2 |         -2 |          0 |          0 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/AppBar.css      | PostCSS        |         30 |          0 |          6 |         36 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Create.jsx      | JavaScript JSX |          5 |          2 |          1 |          8 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Edit.jsx        | JavaScript JSX |         16 |          1 |         -1 |         16 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Index.css       | PostCSS        |         47 |          0 |         12 |         59 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Index.jsx       | JavaScript JSX |        -42 |          0 |          1 |        -41 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/NavBar.jsx      | JavaScript JSX |         -1 |          0 |          0 |         -1 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Show.css        | PostCSS        |         18 |          0 |          4 |         22 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Show.jsx        | JavaScript JSX |         -3 |          2 |          0 |         -1 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/Styles.jsx      | JavaScript JSX |          0 |          0 |         -1 |         -1 |
+| /Users/scottrubin/Coding/projects/listings-app-client/src/components/TypoDivider.jsx | JavaScript JSX |         15 |          0 |          3 |         18 |
+| Total                                                                                |                |         87 |          3 |         25 |        115 |
++--------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

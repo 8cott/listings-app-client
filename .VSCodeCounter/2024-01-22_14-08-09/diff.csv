@@ -1,0 +1,13 @@
+"filename", "language", "JavaScript JSX", "PostCSS", "JavaScript", "comment", "blank", "total"
+"/Users/scottrubin/Coding/projects/listings-app-client/dist/assets/index-1e23e8f4.js", "JavaScript", 0, 0, 2, -2, 0, 0
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/AppBar.css", "PostCSS", 0, 30, 0, 0, 6, 36
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Create.jsx", "JavaScript JSX", 5, 0, 0, 2, 1, 8
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Edit.jsx", "JavaScript JSX", 16, 0, 0, 1, -1, 16
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Index.css", "PostCSS", 0, 47, 0, 0, 12, 59
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Index.jsx", "JavaScript JSX", -42, 0, 0, 0, 1, -41
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/NavBar.jsx", "JavaScript JSX", -1, 0, 0, 0, 0, -1
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Show.css", "PostCSS", 0, 18, 0, 0, 4, 22
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Show.jsx", "JavaScript JSX", -3, 0, 0, 2, 0, -1
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/Styles.jsx", "JavaScript JSX", 0, 0, 0, 0, -1, -1
+"/Users/scottrubin/Coding/projects/listings-app-client/src/components/TypoDivider.jsx", "JavaScript JSX", 15, 0, 0, 0, 3, 18
+"Total", "-", -10, 95, 2, 3, 25, 115
